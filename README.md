@@ -1,4 +1,4 @@
-## Supplementary Robot PAckage for Segway RMP220 lite
+## Robot Support Package for Segway RMP220 lite
 
 This package should be placed into your workspace src/ folder.
 Alongside you must clone https://github.com/bjoernellens1/segwayrmp and https://github.com/bjoernellens1/segway_msgs to control the robot.
