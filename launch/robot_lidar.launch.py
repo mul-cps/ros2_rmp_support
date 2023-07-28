@@ -58,7 +58,7 @@ def generate_launch_description():
             executable='sllidar_node',
             output='screen',
             parameters=[{
-                'serial_port': 'usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_3453995662b3af4f81f4a69eba5f3f29-if00-port0',
+                'serial_port': serial_port,
                 'frame_id': 'laser_frame',
                 'scan_mode': 'Sensitivity',
                 'channel_type':channel_type,
