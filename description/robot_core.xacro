@@ -210,7 +210,7 @@
     </joint>
 
 
-    <link name="caster_wheel">
+    <link name="laser_frame">
         <visual>
             <geometry>
                 <sphere radius="${caster_wheel_radius}"/>
@@ -227,7 +227,7 @@
         </xacro:inertial_sphere>
     </link>
 
-    <gazebo reference="caster_wheel">
+    <gazebo reference="laser_frame">
         <material>Gazebo/White</material>
         <mu1 value="0.001"/>
         <mu2 value="0.001"/>
