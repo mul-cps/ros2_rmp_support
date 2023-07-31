@@ -41,7 +41,7 @@ def generate_launch_description():
     use_sim_time = False
     slam_params_file = PathJoinSubstitution(
                 [
-                    FindPackageShare("bot_mini_bringup"),
+                    FindPackageShare("cps_rmp220_Support"),
                     "config",
                     "mapper_params_online_async.yaml"
                 ]
