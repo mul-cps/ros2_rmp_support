@@ -41,7 +41,7 @@ def generate_launch_description():
     use_sim_time = False
     slam_params_file = PathJoinSubstitution(
                 [
-                    FindPackageShare("cps_rmp220_Support"),
+                    FindPackageShare("cps_rmp220_support"),
                     "config",
                     "mapper_params_online_async.yaml"
                 ]
