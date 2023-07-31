@@ -110,7 +110,7 @@
     <joint name="left_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="left_wheel"/>
-        <origin xyz="0 ${wheel_offset_y} 0" rpy="-${pi/2} 0 0" />
+        <origin xyz="${chassis_length/2 - 0.070} ${wheel_offset_y/2 + wheel_thickness/2 + 0.01} 0" rpy="-${pi/2} 0 0" />
         <axis xyz="0 0 1"/>
     </joint>
 
@@ -143,7 +143,7 @@
     <joint name="right_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="right_wheel"/>
-        <origin xyz="0 ${-wheel_offset_y} 0" rpy="${pi/2} 0 0" />
+        <origin xyz="${chassis_length/2 - 0.070} -${wheel_offset_y/2 + wheel_thickness/2 + 0.01} 0" rpy="${pi/2} 0 0" />
         <axis xyz="0 0 -1"/>
     </joint>
 
@@ -206,7 +206,7 @@
     <joint name="lidar_joint" type="fixed">
         <parent link="chassis"/>
         <child link="laser_frame"/>
-        <origin xyz="-150 0 30"/>
+        <origin xyz="${chassis_length -0.150} 0 ${chassis_height + 0.030}" rpy="0 0 0"/>
     </joint>
 
 
@@ -229,8 +229,6 @@
 
     <gazebo reference="laser_frame">
         <material>Gazebo/White</material>
-        <mu1 value="0.001"/>
-        <mu2 value="0.001"/>
     </gazebo>
 
 </robot>
