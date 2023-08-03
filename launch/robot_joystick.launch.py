@@ -13,12 +13,12 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
 
     joy_params = os.path.join(get_package_share_directory('cps_rmp220_support'),'config','joystick.yaml')
-
+    namespace = "/rmp"
     joy_node = Node(
             package='joy',
             executable='joy_node',
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
-            namespace = "/rmp"
+            namespace = namespace
          )
 
     teleop_node = Node(
@@ -27,7 +27,7 @@ def generate_launch_description():
             name='rmp220_teleop',
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
             remappings=[('cmd_vel','cmd_vel_joy')],
-            namespace = "/rmp"
+            namespace = namespace
          )
     
     twist_mux_params = os.path.join(get_package_share_directory('cps_rmp220_support'),'config','twist_mux.yaml')
