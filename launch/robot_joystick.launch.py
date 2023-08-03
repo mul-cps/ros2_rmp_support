@@ -26,7 +26,7 @@ def generate_launch_description():
             executable='rmp220_teleop',
             name='rmp220_teleop',
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
-            remappings=[('/cmd_vel','cmd_vel_joy')],
+            remappings=[('/cmd_vel', namespace + '/cmd_vel_joy')],
             namespace = namespace
          )
     
