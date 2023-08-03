@@ -35,7 +35,7 @@ def generate_launch_description():
             package="twist_mux",
             executable="twist_mux",
             parameters=[twist_mux_params, {'use_sim_time': False}],
-            remappings=[('/cmd_vel_out','/diffbot_base_controller/cmd_vel_unstamped')]
+            remappings=[('/cmd_vel_out','/diffbot_base_controller/cmd_vel_unstamped')],
             namespace = "/rmp"
         )
     
