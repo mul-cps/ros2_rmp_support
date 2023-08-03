@@ -18,6 +18,7 @@ def generate_launch_description():
             package='joy',
             executable='joy_node',
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
+            namespace = "/rmp"
          )
 
     teleop_node = Node(
@@ -25,7 +26,8 @@ def generate_launch_description():
             executable='rmp220_teleop',
             name='rmp220_teleop',
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
-            remappings=[('/cmd_vel','/cmd_vel_joy')]
+            remappings=[('/cmd_vel','/cmd_vel_joy')],
+            namespace = "/rmp"
          )
     
     twist_mux_params = os.path.join(get_package_share_directory('cps_rmp220_support'),'config','twist_mux.yaml')
@@ -34,6 +36,7 @@ def generate_launch_description():
             executable="twist_mux",
             parameters=[twist_mux_params, {'use_sim_time': False}],
             #remappings=[('/cmd_vel_out','/diffbot_base_controller/cmd_vel_unstamped')]
+            namespace = "/rmp"
         )
     
     return LaunchDescription([

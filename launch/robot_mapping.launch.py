@@ -46,6 +46,7 @@ def generate_launch_description():
                     "mapper_params_online_async.yaml"
                 ]
             )
+    namespace = "/rmp"
     mapper_node = Node(
         package="slam_toolbox",
         executable="async_slam_toolbox_node",
@@ -55,6 +56,7 @@ def generate_launch_description():
             slam_params_file,
             {'use_sim_time': use_sim_time}
         ],
+        namespace = namespace
     )
 
     return LaunchDescription([

@@ -9,7 +9,7 @@ from launch_ros.actions import Node
 
 import xacro
 
-
+namespace = "/rmp"
 def generate_launch_description():
 
     # Check if we're told to use sim time
@@ -27,7 +27,8 @@ def generate_launch_description():
         package='robot_state_publisher',
         executable='robot_state_publisher',
         output='screen',
-        parameters=[params]
+        parameters=[params],
+        namespace=namespace
     )
 
 
