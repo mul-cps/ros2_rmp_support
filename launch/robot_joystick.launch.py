@@ -12,6 +12,35 @@ from ament_index_python.packages import get_package_share_directory
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
 
+    # joy_params = os.path.join(get_package_share_directory('cps_rmp220_support'),'config','joystick.yaml')
+    # namespace = "/rmp"
+    # joy_node = Node(
+    #         package='joy',
+    #         executable='joy_node',
+    #         parameters=[joy_params, {'use_sim_time': use_sim_time}],
+    #         namespace = namespace
+    #      )
+
+    # teleop_node = Node(
+    #         package='rmp220_teleop',
+    #         executable='rmp220_teleop',
+    #         name='rmp220_teleop',
+    #         parameters=[joy_params, {'use_sim_time': use_sim_time}],
+    #         remappings=[('/cmd_vel', 'cmd_vel_joy')],
+    #         namespace = namespace
+    #      )
+    
+    # twist_mux_params = os.path.join(get_package_share_directory('cps_rmp220_support'),'config','twist_mux.yaml')
+    # twist_mux = Node(
+    #         package="twist_mux",
+    #         executable="twist_mux",
+    #         parameters=[twist_mux_params, {'use_sim_time': False}],
+    #         #remappings=[('cmd_vel_joy','/rmp/cmd_vel_joy')],
+    #         namespace = namespace
+    #     )
+
+    # Using the more 'ROS' way:
+
     joy_params = os.path.join(get_package_share_directory('cps_rmp220_support'),'config','joystick.yaml')
     namespace = "/rmp"
     joy_node = Node(
@@ -20,24 +49,16 @@ def generate_launch_description():
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
             namespace = namespace
          )
-
+    
     teleop_node = Node(
-            package='rmp220_teleop',
-            executable='rmp220_teleop',
-            name='rmp220_teleop',
+            package='teleop_twist_joy',
+            executable='teleop_node',
+            name='teleop_twist_joy',
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
-            remappings=[('/cmd_vel', 'cmd_vel_joy')],
+            remappings=[('cmd_vel', 'cmd_vel_joy')],
             namespace = namespace
          )
-    
-    twist_mux_params = os.path.join(get_package_share_directory('cps_rmp220_support'),'config','twist_mux.yaml')
-    twist_mux = Node(
-            package="twist_mux",
-            executable="twist_mux",
-            parameters=[twist_mux_params, {'use_sim_time': False}],
-            #remappings=[('cmd_vel_joy','/rmp/cmd_vel_joy')],
-            namespace = namespace
-        )
+
     
     return LaunchDescription([
         DeclareLaunchArgument(
@@ -46,5 +67,4 @@ def generate_launch_description():
             description='Use sim time if true'),
         joy_node,
         teleop_node,
-        twist_mux
     ])
