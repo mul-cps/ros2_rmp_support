@@ -39,7 +39,8 @@ def generate_launch_description():
     #         namespace = namespace
     #     )
 
-    # Using the more 'ROS' way:
+    # Using the more 'ROS' way: joy node publishes at 50Hz defined in the config and joy-teleop
+    # node publishes the joy messages only when enable button is pressed.
 
     joy_params = os.path.join(get_package_share_directory('cps_rmp220_support'),'config','joystick.yaml')
     namespace = "/rmp"
@@ -55,7 +56,7 @@ def generate_launch_description():
             executable='teleop_node',
             name='teleop_twist_joy',
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
-            remappings=[('cmd_vel', 'cmd_vel_joy')],
+            remappings=[('cmd_vel', 'cmd_vel_out')],
             namespace = namespace
          )
 
