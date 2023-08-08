@@ -73,7 +73,7 @@ def generate_launch_description():
 
     declare_namespace_cmd = DeclareLaunchArgument(
         'namespace',
-        default_value='r',
+        default_value='',
         description='Top-level namespace')
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(

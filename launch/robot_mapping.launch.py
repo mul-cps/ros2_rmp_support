@@ -56,7 +56,7 @@ def generate_launch_description():
             slam_params_file,
             {'use_sim_time': use_sim_time}
         ],
-        namespace = namespace,
+        #namespace = namespace,
         remappings=[('/scan', 'scan'), ('/map', 'map')],
     )
 
