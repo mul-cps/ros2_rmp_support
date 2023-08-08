@@ -57,7 +57,7 @@ def generate_launch_description():
             {'use_sim_time': use_sim_time}
         ],
         namespace = namespace,
-        remappings=[('/scan', 'scan')],
+        remappings=[('/scan', 'scan'), ('/map', 'map')],
     )
 
     return LaunchDescription([
