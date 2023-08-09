@@ -59,6 +59,21 @@ def generate_launch_description():
             remappings=[('cmd_vel', 'cmd_vel_out')],
             #namespace = namespace
          )
+    
+    twist_mux_params = os.path.join(get_package_share_directory('cps_rmp220_support'),'config','twist_mux.yaml')
+    twist_mux_node = Node(
+            package="twist_mux",
+            executable="twist_mux",
+            parameters=[twist_mux_params, {'use_sim_time': False}],
+            #remappings=[('/cmd_vel_out','/diffbot_base_controller/cmd_vel_unstamped')]
+        )
+    
+    rmp_teleop_node = Node(
+            package='rmp220_teleop',
+            executable='rmp220_teleop',
+            name='rmp220_teleop',
+        )   
+
 
     
     return LaunchDescription([
@@ -67,5 +82,7 @@ def generate_launch_description():
             default_value='false',
             description='Use sim time if true'),
         joy_node,
-        teleop_node,
+        #teleop_node,
+        rmp_teleop_node,
+        twist_mux_node
     ])
