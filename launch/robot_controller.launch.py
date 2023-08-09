@@ -10,7 +10,8 @@ def generate_launch_description():
             package='segwayrmp',
             executable='SmartCar',
             name='SmartCar',
-            remappings=[('cmd_vel','cmd_vel_out'), ('/odom','odom'), ('/imu','imu'), ('/bms_fb','bms_fb'), ('/joint_states','joint_states'), ('/tf','tf'), ('/tf_static','tf_static')],
+            #remappings=[('cmd_vel','cmd_vel_out'), ('/odom','odom'), ('/imu','imu'), ('/bms_fb','bms_fb'), ('/joint_states','joint_states'), ('/tf','tf'), ('/tf_static','tf_static')],
+            remappings=[('cmd_vel','cmd_vel_out')],
             #namespace = "/rmp"
          )
 
