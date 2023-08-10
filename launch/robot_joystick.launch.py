@@ -72,10 +72,9 @@ def generate_launch_description():
             package='rmp220_teleop',
             executable='rmp220_teleop',
             name='rmp220_teleop',
+            remappings=[('cmd_vel', 'cmd_vel_joy')],
         )   
 
-
-    
     return LaunchDescription([
         DeclareLaunchArgument(
             'use_sim_time',
