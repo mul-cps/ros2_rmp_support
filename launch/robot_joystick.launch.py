@@ -56,7 +56,7 @@ def generate_launch_description():
             executable='teleop_node',
             name='teleop_twist_joy',
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
-            remappings=[('cmd_vel', 'cmd_vel_out')],
+            remappings=[('cmd_vel', 'cmd_vel_joy')],
             #namespace = namespace
          )
     
@@ -81,7 +81,7 @@ def generate_launch_description():
             default_value='false',
             description='Use sim time if true'),
         joy_node,
-        #teleop_node,
-        rmp_teleop_node,
+        teleop_node,
+        #rmp_teleop_node,
         twist_mux_node
     ])

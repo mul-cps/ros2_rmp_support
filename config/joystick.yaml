@@ -25,4 +25,4 @@ teleop_node:
     enable_button: 2
     enable_turbo_button: 5
 
-    require_enable_button: true
+    require_enable_button: false
