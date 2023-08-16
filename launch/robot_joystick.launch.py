@@ -73,7 +73,14 @@ def generate_launch_description():
             executable='rmp220_teleop',
             name='rmp220_teleop',
             remappings=[('cmd_vel', 'cmd_vel_joy')],
-        )   
+        )
+    
+    rmp_middleware_node = Node(
+            package='rmp220_middleware',
+            executable='rmp220_middleware',
+            name='rmp220_middleware',
+            #namespace = namespace
+         )
 
     return LaunchDescription([
         DeclareLaunchArgument(
@@ -83,5 +90,6 @@ def generate_launch_description():
         joy_node,
         teleop_node,
         #rmp_teleop_node,
-        twist_mux_node
+        twist_mux_node,
+        rmp_middleware_node
     ])
