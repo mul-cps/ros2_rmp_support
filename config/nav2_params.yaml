@@ -142,7 +142,8 @@ controller_server:
 
       # trying roation_shim_controller
       plugin: "nav2_rotation_shim_controller::RotationShimController"
-      primary_controller: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
+      #primary_controller: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
+      primary_controller: "dwb_core::DWBLocalPlanner"
       angular_dist_threshold: 0.785
       forward_sampling_distance: 0.5
       rotate_to_heading_angular_vel: 1.8
