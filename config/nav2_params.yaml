@@ -299,7 +299,7 @@ planner_server:
     planner_plugins: ["GridBased"]
     GridBased:
       #plugin: "nav2_navfn_planner/NavfnPlanner"
-      plugin: "nav2_smac_planner/SmacPlannerHybrid"
+      plugin: "nav2_smac_planner/SmacPlanner2D"
       tolerance: 0.5
       #use_astar: false
       allow_unknown: true
