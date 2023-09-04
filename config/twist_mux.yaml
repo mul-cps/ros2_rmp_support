@@ -2,11 +2,11 @@ twist_mux:
   ros__parameters:
     topics:
       common:
-        topic   : cmd_vel
+        topic   : cmd_vel_common
         timeout : 0.5
         priority: 0
       navigation:
-        topic   : cmd_vel_nav
+        topic   : cmd_vel
         timeout : 0.5
         priority: 10
       tracker:
