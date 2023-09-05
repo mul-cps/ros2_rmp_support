@@ -13,6 +13,7 @@ def generate_launch_description():
             #remappings=[('cmd_vel','cmd_vel_out'), ('/odom','odom'), ('/imu','imu'), ('/bms_fb','bms_fb'), ('/joint_states','joint_states'), ('/tf','tf'), ('/tf_static','tf_static')],
             remappings=[('cmd_vel','cmd_vel_out')],
             #namespace = "/rmp"
+            parameters=[{'serial_full_name': /dev/ttyUSB0}],
          )
 
 
