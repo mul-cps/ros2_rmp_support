@@ -52,8 +52,8 @@ ekf_filter_node:
                       false, false, false,
                       false, false, true,
                       true, false, false]
-        imu0_differential: true
-        imu0_relative: false
+        imu0_differential: false
+        imu0_relative: true
 
         # [ADVANCED] Some IMUs automatically remove acceleration due to gravity, and others don't. If yours doesn't, please set
         # this to true, and *make sure* your data conforms to REP-103, specifically, that the data is in ENU frame.
