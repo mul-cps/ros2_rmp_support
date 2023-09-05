@@ -51,7 +51,7 @@ ekf_filter_node:
                       false, false, false,
                       false, false, false,
                       false, false, true,
-                      true, true, false]
+                      true, false, false]
         imu0_differential: false
         imu0_relative: false
 
