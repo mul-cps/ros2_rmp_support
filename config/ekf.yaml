@@ -40,7 +40,7 @@ ekf_filter_node:
                        true, false, false,
                        false, false, true,
                        false, false, false]
-        odom0_differential: false
+        odom0_differential: true
         odom0_relative: true
         
         imu0: /imu
