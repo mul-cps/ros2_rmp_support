@@ -78,7 +78,7 @@
     <joint name="chassis_joint" type="fixed">
         <parent link="base_link"/>
         <child link="chassis"/>
-        <origin xyz="${-chassis_length/2 + 0.075} 0 ${wheel_offset_z + chassis_height}"/>
+        <origin xyz="${-chassis_length/2 + 0.075} 0 ${wheel_offset_z + chassis_height/2}"/>
     </joint>
 
     <link name="chassis">
