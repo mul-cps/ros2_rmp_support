@@ -226,10 +226,10 @@
         </xacro:inertial_sphere>
     </link> -->
 
-    <joint name="lidar_joint" type="fixed">
-        <parent link="base_link"/>
+    <joint name="laser_joint" type="fixed">
+        <parent link="chassis_link"/>
         <child link="laser_frame"/>
-        <origin xyz="${0.075 - 0.15285} 0 ${chassis_height + 0.030}" rpy="0 0 ${pi}"/>
+        <origin xyz="${0.075 - 0.15285} 0 ${0.030}" rpy="0 0 ${pi}"/>
     </joint>
 
 
