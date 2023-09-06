@@ -18,4 +18,6 @@
 
     <xacro:include filename="face.xacro" />
     
+    <xacro:include filename="imu.xacro" />
+    
 </robot>
