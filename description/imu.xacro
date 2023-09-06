@@ -4,7 +4,7 @@
     <joint name="imu_joint" type="fixed">
         <parent link="chassis"/>
         <child link="imu_link"/>
-        <origin xyz="${chassis_length/2 - 0.15285} 0 ${chassis_height/2}" rpy="0 0 0"/>
+        <origin xyz="${chassis_length/2 - 0.15285} 0 0" rpy="0 0 0"/>
     </joint>
 
     <link name="imu_link">
