@@ -473,7 +473,7 @@ controller_server:
       RotateToGoal.scale: 32.0
       RotateToGoal.slowing_factor: 5.0
       RotateToGoal.lookahead_time: -1.0
-      TwirlingCritic.scale: 1.0
+      TwirlingCritic.scale: 0.5
 
 local_costmap:
   local_costmap:
