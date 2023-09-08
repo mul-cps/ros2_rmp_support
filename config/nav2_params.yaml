@@ -462,7 +462,7 @@ controller_server:
       trans_stopped_velocity: 0.25
       short_circuit_trajectory_evaluation: True
       stateful: True
-      critics: ["RotateToGoal", "Oscillation", "ObstacleFootprintCritic", "GoalAlign", "PathAlign", "PathDist", "GoalDist", "TwirlingCritic"] # added TwirlingCritic, remove BaseObstacleCritic, adde ObstacleFootprintCritic
+      critics: ["RotateToGoal", "Oscillation", "ObstacleFootprintCritic", "GoalAlign", "PathAlign", "PathDist", "GoalDist"] # added TwirlingCritic, remove BaseObstacleCritic, adde ObstacleFootprintCritic
       ObstacleFootprintCritic.scale: 0.08 # was 0.02
       PathAlign.scale: 32.0
       GoalAlign.scale: 24.0
@@ -473,7 +473,7 @@ controller_server:
       RotateToGoal.scale: 32.0
       RotateToGoal.slowing_factor: 5.0
       RotateToGoal.lookahead_time: -1.0
-      TwirlingCritic.scale: 0.02 # was 1.0
+      #TwirlingCritic.scale: 0.02 # was 1.0
 
 local_costmap:
   local_costmap:
