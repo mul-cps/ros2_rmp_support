@@ -442,11 +442,11 @@ controller_server:
       forward_sampling_distance: 0.5
       rotate_to_heading_angular_vel: 2.8 # was 1.8
       max_angular_accel: 1.2
-      simulate_ahead_time: 2.0 # was 1.0
+      simulate_ahead_time: 1.0 # was 1.0
 
       # Primary controller params can be placed here below
       debug_trajectory_details: False
-      min_vel_x: -0.26 # was 0.0 -> maybe can go backwards now.
+      min_vel_x: -0.16 # was 0.0 -> maybe can go backwards now. YES!
       min_vel_y: 0.0
       max_vel_x: 0.26
       max_vel_y: 0.0
