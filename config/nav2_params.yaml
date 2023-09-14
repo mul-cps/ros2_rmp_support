@@ -695,11 +695,11 @@ velocity_smoother:
     scale_velocities: False
     #feedback: "OPEN_LOOP"
     feedback: "CLOSED_LOOP"
-    max_velocity: [0.26, 0.0, 1.0]
-    min_velocity: [-0.26, 0.0, -1.0]
+    max_velocity: [0.26, 0.0, 2.0] # was 0.26, 0.0, 1.0
+    min_velocity: [-0.26, 0.0, -2.0] # was -0.26, 0.0, -1.0
     max_accel: [2.5, 0.0, 3.2]
     max_decel: [-2.5, 0.0, -3.2]
     odom_topic: "odometry"
-    odom_duration: 0.1
-    deadband_velocity: [0.0, 0.0, 0.0]
+    odom_duration: 0.025 # was 0.1, set to 40 hz to match odometry freq.
+    deadband_velocity: [0.1, 0.1, 0.1] # was 0.0, 0.0, 0.0
     velocity_timeout: 1.0
