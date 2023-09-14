@@ -485,6 +485,7 @@ controller_server:
       #TwirlingCritic.scale: 0.02 # was 1.0
       PreferForward.penalty: 1.0
       PreferForward.scale: 5.0
+      Oscillation.scale: 20.0
 
 local_costmap:
   local_costmap:
