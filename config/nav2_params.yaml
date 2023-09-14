@@ -330,7 +330,7 @@ controller_server:
         cost_power: 1
         repulsion_weight: 1.5
         critical_weight: 20.0
-        consider_footprint: false
+        consider_footprint: true # was false
         collision_cost: 10000.0
         collision_margin_distance: 0.1
         near_goal_distance: 0.5
