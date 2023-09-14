@@ -471,11 +471,11 @@ controller_server:
       trans_stopped_velocity: 0.25
       short_circuit_trajectory_evaluation: True
       stateful: True
-      critics: ["RotateToGoal", "Oscillation", "ObstacleFootprintCritic", "GoalAlign", "PathAlign", "PathDist", "GoalDist"] # added TwirlingCritic, remove BaseObstacleCritic, adde ObstacleFootprintCritic
+      critics: ["RotateToGoal", "Oscillation", "ObstacleFootprintCritic", "GoalAlign", "PathAlign", "PathDist", "GoalDist", "PreferForward"] # added TwirlingCritic, PreferForward, remove BaseObstacleCritic, adde ObstacleFootprintCritic
       ObstacleFootprintCritic.scale: 0.08 # was 0.02
       PathAlign.scale: 32.0
       GoalAlign.scale: 24.0
-      PathAlign.forward_point_distance: 0.1
+      PathAlign.forward_point_distance: 0.05 # was 0.1
       GoalAlign.forward_point_distance: 0.1
       PathDist.scale: 32.0
       GoalDist.scale: 24.0
@@ -483,6 +483,8 @@ controller_server:
       RotateToGoal.slowing_factor: 5.0
       RotateToGoal.lookahead_time: -1.0
       #TwirlingCritic.scale: 0.02 # was 1.0
+      PreferForward.penalty: 1.0
+      PreferForward.scale: 5.0
 
 local_costmap:
   local_costmap:
