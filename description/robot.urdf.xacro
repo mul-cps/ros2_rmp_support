@@ -19,5 +19,8 @@
     <xacro:include filename="face.xacro" />
     
     <xacro:include filename="imu.xacro" />
+
+    <!-- New xacro file defining oak-d-lite depth camera -->
+    <xacro:include filename="oak-d-lite.xacro"/>
     
 </robot>
