@@ -26,7 +26,7 @@
     <joint name="oak-d-base-joint" type="fixed">
         <parent link="chassis"/>
         <child link="oak-d-base-frame"/>
-        <origin xyz="0 0 ${chassis_height/2 - 0.010}" rpy="0 0 0"/>
+        <origin xyz="${chassis_length/2 + 0.010} 0 ${chassis_height/2 - 0.010}" rpy="0 0 0"/>
     </joint>
 
 
