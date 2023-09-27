@@ -484,7 +484,7 @@ controller_server:
       RotateToGoal.lookahead_time: -1.0
       #TwirlingCritic.scale: 0.02 # was 1.0
       PreferForward.penalty: 1.0
-      PreferForward.scale: 5.0
+      PreferForward.scale: 32.0 # was 5.0
       Oscillation.scale: 20.0
 
 local_costmap:
@@ -715,6 +715,6 @@ velocity_smoother:
     max_accel: [2.5, 0.0, 3.2]
     max_decel: [-2.5, 0.0, -3.2]
     odom_topic: "/odometry/filtered"
-    odom_duration: 0.025 # was 0.1, set to 40 hz to match odometry freq.
+    odom_duration: 0.0333 # was 0.1, set to 30 hz to match odometry freq.
     deadband_velocity: [0.1, 0.1, 0.1] # was 0.0, 0.0, 0.0
     velocity_timeout: 1.0
