@@ -36,7 +36,7 @@ ekf_filter_node:
         odom0: /odom
         # The order of the values of this parameter is x, y, z, roll, pitch, yaw, vx, vy, vz, vroll, vpitch, vyaw, ax, ay, az.
         # Configure it for x,y,z,vyaw on the odom topic
-        odom0_config: [false , false , false,
+        odom0_config: [false , false , true,
                        false, false, false,
                        true, true, true,
                        false, false, true,
