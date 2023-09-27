@@ -668,9 +668,9 @@ behavior_server:
     costmap_topic: local_costmap/costmap_raw
     footprint_topic: local_costmap/published_footprint
     cycle_frequency: 10.0
-    behavior_plugins: [ "spin", "backup", "drive_on_heading", "assisted_teleop", "wait"] # "spin",
-    spin:
-      plugin: "nav2_behaviors/Spin"
+    behavior_plugins: [ "backup", "drive_on_heading", "assisted_teleop", "wait"] # "removed spin",
+    # spin:
+    #   plugin: "nav2_behaviors/Spin"
     backup:
       plugin: "nav2_behaviors/BackUp"
     drive_on_heading:
