@@ -38,7 +38,7 @@ ekf_filter_node:
         # Configure it for x,y,z,vyaw on the odom topic
         odom0_config: [false , false , false,
                        false, false, false,
-                       true, false, false,
+                       true, true, true,
                        false, false, true,
                        false, false, false]
         odom0_differential: true
