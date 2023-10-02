@@ -440,8 +440,8 @@ controller_server:
       # RotaitonShimController parameters:
       angular_dist_threshold: 0.785 #was 6.283 now lowered value
       forward_sampling_distance: 0.5
-      rotate_to_heading_angular_vel: 2.8 # was 1.8
-      max_angular_accel: 1.2
+      rotate_to_heading_angular_vel: 1.8 # was 2.8
+      max_angular_accel: 0.6 # was 1.2
       simulate_ahead_time: 1.0 # was 1.0
 
       # Primary controller params can be placed here below
@@ -475,7 +475,7 @@ controller_server:
       ObstacleFootprintCritic.scale: 0.08 # was 0.02
       PathAlign.scale: 32.0
       GoalAlign.scale: 24.0
-      PathAlign.forward_point_distance: 0.05 # was 0.1
+      PathAlign.forward_point_distance: 0.01 # was 0.5
       GoalAlign.forward_point_distance: 0.1
       PathDist.scale: 32.0
       GoalDist.scale: 24.0
@@ -483,7 +483,7 @@ controller_server:
       RotateToGoal.slowing_factor: 5.0
       RotateToGoal.lookahead_time: -1.0
       #TwirlingCritic.scale: 0.02 # was 1.0
-      PreferForward.penalty: 1.0
+      PreferForward.penalty: 0.8 # was 1.0
       PreferForward.scale: 32.0 # was 5.0
       Oscillation.scale: 20.0
 
