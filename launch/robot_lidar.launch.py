@@ -68,7 +68,7 @@ def generate_launch_description():
                 'angle_compensate': angle_compensate
             }],
             #namespace = "/rmp"
-        )
+        ),
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([ThisLaunchFileDir(), 'robot_scan_filter.launch.py']),
