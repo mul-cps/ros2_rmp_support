@@ -8,6 +8,7 @@ from launch.actions import DeclareLaunchArgument
 from launch.actions import LogInfo
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
+from launch.substitutions import ThisLaunchFileDir
 
 def generate_launch_description():
     channel_type =  LaunchConfiguration('channel_type', default='serial')
@@ -68,4 +69,9 @@ def generate_launch_description():
             }],
             #namespace = "/rmp"
         )
+
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([ThisLaunchFileDir(), 'robot_scan_filter.launch.py']),
+            #launch_arguments={'my_arg': 'new_value'}.items()  # You can pass arguments here
+        ),
     ])
