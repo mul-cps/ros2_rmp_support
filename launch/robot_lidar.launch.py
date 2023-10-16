@@ -19,11 +19,11 @@ def generate_launch_description():
     angle_compensate = LaunchConfiguration('angle_compensate', default='true')
     scan_mode = LaunchConfiguration('scan_mode', default='Sensitivity')
 
-    IncludeLaunchDescription(
+    scan_filter = IncludeLaunchDescription(
             PythonLaunchDescriptionSource([ThisLaunchFileDir(), 'robot_scan_filter.launch.py']),
             #launch_arguments={'my_arg': 'new_value'}.items()  # You can pass arguments here
         ),
-        
+
     return LaunchDescription([
         DeclareLaunchArgument(
             'channel_type',
@@ -73,5 +73,6 @@ def generate_launch_description():
                 'angle_compensate': angle_compensate
             }],
             #namespace = "/rmp"
-        )
+        ),
+        scan_filter()
     ])
