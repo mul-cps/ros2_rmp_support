@@ -8,7 +8,7 @@ scan_to_scan_filter_chain:
         max_x: 0.80 #was 0.16
         max_y: 0.16
         max_z: 0.1
-        min_x: 0.0 #was -0.41
+        min_x: -0.10 #was -0.41
         min_y: -0.16
         min_z: -0.2
         
