@@ -3,23 +3,13 @@
 <package format="3">
   <name>cps_rmp220_support</name>
   <version>0.0.1</version>
-  <description>Segway RMP220 lite ackage for control, simulation and visualization</description>
-  <maintainer email="bjoern.ellensohn@stud.unileoben.ac.at">MY NAME</maintainer>
+  <description>Segway RMP220 lite package for control, simulation and visualization</description>
+  <maintainer email="bjoern.ellensohn@stud.unileoben.ac.at">Björn Ellensohn</maintainer>
   <license>TODO: License declaration</license>
 
-  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>catkin</buildtool_depend>
 
-  <exec_depend>joy</exec_depend>
-  <exec_depend>twist_mux</exec_depend>
-  <exec_depend>slam_toolbox</exec_depend>
-  <exec_depend>navigation2</exec_depend>
-  <exec_depend>nav2_bringup</exec_depend>
-  <exec_depend>teleop_twist_joy</exec_depend>
-  
-  <test_depend>ament_lint_auto</test_depend>
-  <test_depend>ament_lint_common</test_depend>
+  <depend>urdf</depend>
+  <depend>xacro</depend>
 
-  <export>
-    <build_type>ament_cmake</build_type>
-  </export>
 </package>
