@@ -54,7 +54,7 @@ install(DIRECTORY description
 # Install launch files
 install(DIRECTORY launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-  FILES_MATCHING PATTERN "*.launch.py"
+  FILES_MATCHING PATTERN "*.launch*"
 )
 
 # Install world files
