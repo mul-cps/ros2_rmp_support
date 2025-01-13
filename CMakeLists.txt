@@ -14,7 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   actionlib
-  move_base_msgs
+  #move_base_msgs
   tf
 )
 
