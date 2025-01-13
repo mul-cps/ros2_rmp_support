@@ -3,15 +3,15 @@
 
     <joint name="imu_joint" type="fixed">
         <parent link="chassis"/>
-        <child link="imu"/>
+        <child link="robot_imu"/>
         <origin xyz="${chassis_length/2 - 0.15285} 0 0" rpy="0 0 0"/>
     </joint>
 
-    <link name="imu">
+    <link name="robot_imu">
 
     </link>
 
-    <gazebo reference="imu">
+    <gazebo reference="robot_imu">
         <material>Gazebo/Black</material>
     </gazebo>
 
