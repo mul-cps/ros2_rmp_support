@@ -10,6 +10,12 @@ project(cps_rmp220_support)
 find_package(catkin REQUIRED COMPONENTS
   urdf
   xacro
+  roscpp
+  rospy
+  std_msgs
+  actionlib
+  move_base_msgs
+  tf
 )
 
 ################################################################################
@@ -37,6 +43,9 @@ catkin_package(
 include_directories(
   ${catkin_INCLUDE_DIRS}
 )
+
+add_executable(odom_publisher nodes/odom_publisher.cpp)
+target_link_libraries(odom_publisher ${catkin_LIBRARIES})
 
 ################################################################################
 # Install
