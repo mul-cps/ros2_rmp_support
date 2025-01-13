@@ -7,11 +7,11 @@
         <origin xyz="${chassis_length/2 - 0.15285} 0 0" rpy="0 0 0"/>
     </joint>
 
-    <link name="imu_link">
+    <link name="imu">
 
     </link>
 
-    <gazebo reference="imu_link">
+    <gazebo reference="imu">
         <material>Gazebo/Black</material>
     </gazebo>
 
