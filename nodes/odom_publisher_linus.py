@@ -15,8 +15,8 @@ def odom_callback(msg):
     odom_trans.child_frame_id = "base_link"
 
     # Set the translation
-    odom_trans.transform.translation.x = msg.pose.pose.position.x
-    odom_trans.transform.translation.y = msg.pose.pose.position.y
+    odom_trans.transform.translation.y = msg.pose.pose.position.x
+    odom_trans.transform.translation.x = msg.pose.pose.position.y
     odom_trans.transform.translation.z = msg.pose.pose.position.z
 
     # Set the rotation
