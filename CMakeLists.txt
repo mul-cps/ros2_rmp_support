@@ -51,6 +51,7 @@ target_link_libraries(odom_publisher ${catkin_LIBRARIES})
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
   nodes/odom_publisher_python.py
+  nodes/odom_publisher_linus.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
