@@ -19,14 +19,18 @@ def odom_callback(msg):
         orientation.x, orientation.y, orientation.z, orientation.w
     )
 
+    # Get frame IDs from the message
+    parent_frame_id = msg.header.frame_id if msg.header.frame_id else "odom"
+    child_frame_id = msg.child_frame_id if msg.child_frame_id else "base_link"
+
     # Broadcast the transformation
     br = tf.TransformBroadcaster()
     br.sendTransform(
         (position.x, position.y, position.z),  # Translation
         (qx, qy, qz, qw),  # Normalized rotation (quaternion)
         rospy.Time.now(),  # Timestamp
-        msg.child_frame_id if msg.child_frame_id else "base_link",  # Child frame ID
-        msg.header.frame_id if msg.header.frame_id else "odom"  # Parent frame ID
+        child_frame_id,  # Child frame ID
+        parent_frame_id  # Parent frame ID
     )
 
 def main():
