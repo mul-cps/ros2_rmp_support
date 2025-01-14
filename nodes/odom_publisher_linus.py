@@ -10,7 +10,9 @@ def odom_callback(msg):
     odom_trans = TransformStamped()
     odom_trans.header.stamp = msg.header.stamp
     odom_trans.header.frame_id = msg.header.frame_id
-    odom_trans.child_frame_id = msg.child_frame_id
+
+    # Set child_frame_id explicitly (e.g., base_link)
+    odom_trans.child_frame_id = "base_link"
 
     # Set the translation
     odom_trans.transform.translation.x = msg.pose.pose.position.x
