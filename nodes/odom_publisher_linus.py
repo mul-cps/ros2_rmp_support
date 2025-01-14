@@ -10,7 +10,7 @@ import math
 # Variables for odometry calculations
 x, y, th = 0.0, 0.0, 0.0
 vx, vy, vth = 0.0, 0.0, 0.0
-last_time = rospy.Time.now()
+last_time = None
 
 # Publisher for odometry
 odom_pub = None
