@@ -20,7 +20,7 @@ def odom_callback(msg):
     )
 
     # Get frame IDs from the message
-    parent_frame_id = msg.header.frame_id if msg.header.frame_id else "odom"
+    parent_frame_id = msg.header.frame_id if msg.header.frame_id else "Odometry"
     child_frame_id = msg.child_frame_id if msg.child_frame_id else "base_link"
 
     # Broadcast the transformation
