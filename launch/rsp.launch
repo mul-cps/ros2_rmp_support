@@ -9,5 +9,5 @@
     <!-- Start the joint state publisher node -->
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen"/>
 
-    <node name="odom_publisher_fromTwist" pkg="cps_rmp220_support" type="odom_publisher_fromTwist.py" />
+    <!-- <node name="odom_publisher_fromTwist" pkg="cps_rmp220_support" type="odom_publisher_fromTwist.py" /> -->
 </launch>
