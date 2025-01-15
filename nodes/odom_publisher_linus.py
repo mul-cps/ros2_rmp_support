@@ -25,6 +25,20 @@ def odom_callback(msg):
     # Publish the transform
     tf_broadcaster.sendTransform(odom_trans)
 
+    # print debug info
+    rospy.loginfo("Position: x={}, y={}, z={}".format(
+        msg.pose.pose.position.x,
+        msg.pose.pose.position.y,
+        msg.pose.pose.position.z
+    ))
+
+    rospy.loginfo("Orientation: x={}, y={}, z={}, w={}".format(
+        msg.pose.pose.orientation.x,
+        msg.pose.pose.orientation.y,
+        msg.pose.pose.orientation.z,
+        msg.pose.pose.orientation.w
+    ))
+
 if __name__ == "__main__":
     rospy.init_node("tf2_broadcaster")
 
