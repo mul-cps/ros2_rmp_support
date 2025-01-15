@@ -1,43 +1,47 @@
 #!/usr/bin/env python
 
 import rospy
-from nav_msgs.msg import Odometry
-import tf
-import math
+import tf2_ros
+from geometry_msgs.msg import TransformStamped, PoseStamped
+from tf.transformations import quaternion_from_euler
 
-def normalize_quaternion(x, y, z, w):
-    norm = math.sqrt(x**2 + y**2 + z**2 + w**2)
-    return x / norm, y / norm, z / norm, w / norm
 
-def odom_callback(msg):
-    # Extract position and orientation from the odometry message
-    position = msg.pose.pose.position
-    orientation = msg.pose.pose.orientation
+def odom_callback(msg, broadcaster):
+    # Create a TransformStamped object
+    transform = TransformStamped()
 
-    # Normalize the quaternion
-    qx, qy, qz, qw = normalize_quaternion(
-        orientation.x, orientation.y, orientation.z, orientation.w
-    )
+    # Header
+    transform.header.stamp = rospy.Time.now()
+    transform.header.frame_id = "odom"  # Parent frame
+    transform.child_frame_id = "base_link"  # Child frame
 
-    # Get frame IDs from the message
-    parent_frame_id = msg.header.frame_id if msg.header.frame_id else "Odometry"
-    child_frame_id = msg.child_frame_id if msg.child_frame_id else "base_link"
+    # Translation from Pose
+    transform.transform.translation.x = msg.pose.position.x
+    transform.transform.translation.y = msg.pose.position.y
+    transform.transform.translation.z = msg.pose.position.z
 
-    # Broadcast the transformation
-    br = tf.TransformBroadcaster()
-    br.sendTransform(
-        (position.x, position.y, position.z),  # Translation
-        (qx, qy, qz, qw),  # Normalized rotation (quaternion)
-        rospy.Time.now(),  # Timestamp
-        child_frame_id,  # Child frame ID
-        parent_frame_id  # Parent frame ID
-    )
+    # Rotation (quaternion already in the pose message)
+    transform.transform.rotation = msg.pose.orientation
 
-def main():
-    rospy.init_node('odom_tf_publisher', anonymous=True)
-    rospy.Subscriber('/odom', Odometry, odom_callback)
-    rospy.loginfo("TF Publisher for /odom topic is running...")
+    # Broadcast the transform
+    broadcaster.sendTransform(transform)
+
+
+def publish_transform_from_odom():
+    rospy.init_node("odom_to_base_link_broadcaster")
+
+    # Create a TransformBroadcaster object
+    broadcaster = tf2_ros.TransformBroadcaster()
+
+    # Subscribe to /odom topic
+    rospy.Subscriber("/odom", PoseStamped, odom_callback, broadcaster)
+
+    # Spin to keep the node running and processing callbacks
     rospy.spin()
 
-if __name__ == '__main__':
-    main()
+
+if __name__ == "__main__":
+    try:
+        publish_transform_from_odom()
+    except rospy.ROSInterruptException:
+        pass
