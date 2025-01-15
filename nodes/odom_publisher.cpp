@@ -82,4 +82,13 @@ int main(int argc, char** argv) {
 
     // Set the velocity
     odom.child_frame_id = "base_link";
-    odom.twist.twist
+    odom.twist.twist.linear.x = vx;
+    odom.twist.twist.linear.y = 0.0; // No lateral velocity
+    odom.twist.twist.angular.z = vth;
+
+    odom_pub.publish(odom);
+
+    last_time = current_time;
+    r.sleep();
+  }
+}
