@@ -5,6 +5,7 @@ from nav_msgs.msg import Odometry
 from geometry_msgs.msg import TransformStamped
 import tf2_ros
 import math
+from tf.transformations import quaternion_from_euler  # Import the function
 
 # Global variables for cumulative pose
 x = 0.0
