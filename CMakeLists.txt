@@ -52,6 +52,7 @@ target_link_libraries(odom_publisher ${catkin_LIBRARIES})
 catkin_install_python(PROGRAMS
   nodes/odom_publisher_python.py
   nodes/odom_publisher_linus.py
+  nodes/odom_publisher_fromTwist.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
