@@ -2,14 +2,12 @@
 #include <tf/transform_broadcaster.h>
 #include <nav_msgs/Odometry.h>
 
-double vx = 0.0;
-double vy = 0.0;
-double vth = 0.0;
+double vx = 0.0; // Linear velocity
+double vth = 0.0; // Angular velocity
 
 void odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
-  // Extract velocity data from the /odom topic
+  // Extract linear and angular velocities
   vx = msg->twist.twist.linear.x;
-  vy = msg->twist.twist.linear.y;
   vth = msg->twist.twist.angular.z;
 }
 
@@ -34,21 +32,26 @@ int main(int argc, char** argv) {
   current_time = ros::Time::now();
   last_time = ros::Time::now();
 
-  ros::Rate r(50.0); // Update rate increased to 50 Hz
+  ros::Rate r(50.0); // Update rate: 50 Hz
 
   while (ros::ok()) {
     ros::spinOnce();  // Check for incoming messages
     current_time = ros::Time::now();
 
-    // Compute odometry based on subscribed velocity data
+    // Compute odometry based on velocities
     double dt = (current_time - last_time).toSec();
-    double delta_x = (vx * cos(th)) * dt;
-    double delta_y = (vx * sin(th)) * dt;
+    double delta_x = vx * cos(th) * dt;
+    double delta_y = vx * sin(th) * dt;
     double delta_th = vth * dt;
 
     x += delta_x;
     y += delta_y;
     th += delta_th;
+
+    // Normalize the yaw angle to [-π, π]
+    th = fmod(th + M_PI, 2 * M_PI);
+    if (th < 0) th += 2 * M_PI;
+    th -= M_PI;
 
     // Create quaternion from yaw
     geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(th);
@@ -79,13 +82,4 @@ int main(int argc, char** argv) {
 
     // Set the velocity
     odom.child_frame_id = "base_link";
-    odom.twist.twist.linear.x = vx;
-    odom.twist.twist.linear.y = vy;
-    odom.twist.twist.angular.z = vth;
-
-    odom_pub.publish(odom);
-
-    last_time = current_time;
-    r.sleep();
-  }
-}
+    odom.twist.twist
