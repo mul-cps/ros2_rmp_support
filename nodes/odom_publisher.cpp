@@ -42,8 +42,8 @@ int main(int argc, char** argv) {
 
     // Compute odometry based on subscribed velocity data
     double dt = (current_time - last_time).toSec();
-    double delta_x = (vx * cos(th) - vy * sin(th)) * dt;
-    double delta_y = (vx * sin(th) + vy * cos(th)) * dt;
+    double delta_x = (vx * cos(th)) * dt;
+    double delta_y = (vx * sin(th)) * dt;
     double delta_th = vth * dt;
 
     x += delta_x;
