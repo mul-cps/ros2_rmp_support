@@ -31,10 +31,15 @@ class EncoderOdometry:
         # ROS subscriber to /ticks_fb topic
         rospy.Subscriber("/ticks_fb", ticks_fb, self.ticks_callback)
 
+        rospy.loginfo("Encoder Odometry Publisher Initialized.")
+
         rospy.spin()
 
     def ticks_callback(self, msg):
+        rospy.logdebug(f"Received ticks: l_ticks={msg.l_ticks}, r_ticks={msg.r_ticks}, timestamp={msg.ticks_timestamp}")
+
         if self.last_l_ticks is None or self.last_r_ticks is None or self.last_time is None:
+            rospy.logdebug("Initializing with first set of ticks.")
             self.last_l_ticks = msg.l_ticks
             self.last_r_ticks = msg.r_ticks
             self.last_time = msg.ticks_timestamp / 1e6  # Convert to seconds
@@ -44,20 +49,24 @@ class EncoderOdometry:
         current_time = msg.ticks_timestamp / 1e6  # Convert to seconds
         dt = current_time - self.last_time
         if dt <= 0:
+            rospy.logwarn(f"Invalid time delta: {dt}. Skipping this message.")
             return  # Skip if time is invalid
 
         # Compute tick differences
         delta_l = msg.l_ticks - self.last_l_ticks
         delta_r = msg.r_ticks - self.last_r_ticks
+        rospy.logdebug(f"Delta ticks: l={delta_l}, r={delta_r}")
 
         # Convert ticks to meters
         meters_per_tick = (2 * math.pi * self.wheel_radius) / self.ticks_per_revolution
         delta_s_l = delta_l * meters_per_tick
         delta_s_r = delta_r * meters_per_tick
+        rospy.logdebug(f"Delta displacement: left={delta_s_l} m, right={delta_s_r} m")
 
         # Compute linear and angular velocity
         v = (delta_s_l + delta_s_r) / 2.0 / dt
         omega = (delta_s_r - delta_s_l) / self.wheel_base / dt
+        rospy.logdebug(f"Computed velocity: linear={v} m/s, angular={omega} rad/s")
 
         # Integrate motion (basic differential drive kinematics)
         delta_theta = omega * dt
@@ -66,6 +75,7 @@ class EncoderOdometry:
         delta_y = v * math.sin(self.theta) * dt
         self.x += delta_x
         self.y += delta_y
+        rospy.logdebug(f"Integrated position: x={self.x}, y={self.y}, theta={self.theta}")
 
         # Create odometry message
         odom = Odometry()
@@ -89,9 +99,11 @@ class EncoderOdometry:
         odom.twist.twist.angular.z = omega
 
         # Publish odometry to /odom_new
+        rospy.logdebug("Publishing Odometry message.")
         self.odom_pub.publish(odom)
 
         # Publish TF transform
+        rospy.logdebug("Publishing TF transform.")
         self.odom_broadcaster.sendTransform(
             (self.x, self.y, 0),
             q,
