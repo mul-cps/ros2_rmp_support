@@ -37,6 +37,14 @@ def odom_callback(msg):
     odom_normalized.pose.covariance = msg.pose.covariance
     odom_normalized.twist = msg.twist  # Copy twist data
 
+    # Include covariance
+    odom_normalized.pose.covariance = [0.01, 0, 0, 0, 0, 0,
+                                        0, 0.01, 0, 0, 0, 0,
+                                        0, 0, 0.01, 0, 0, 0,
+                                        0, 0, 0, 0.01, 0, 0,
+                                        0, 0, 0, 0, 0.01, 0,
+                                        0, 0, 0, 0, 0, 0.01]
+
     # Publish normalized odom
     pub.publish(odom_normalized)
 
