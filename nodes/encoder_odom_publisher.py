@@ -24,8 +24,8 @@ class EncoderOdometry:
         self.last_r_ticks = None
         self.last_time = None
 
-        # ROS publishers
-        self.odom_pub = rospy.Publisher("/odom", Odometry, queue_size=10)
+        # ROS publishers (Updated topic to /odom_new)
+        self.odom_pub = rospy.Publisher("/odom_new", Odometry, queue_size=10)
         self.odom_broadcaster = tf.TransformBroadcaster()
 
         # ROS subscriber
@@ -88,7 +88,7 @@ class EncoderOdometry:
         odom.twist.twist.linear.x = v
         odom.twist.twist.angular.z = omega
 
-        # Publish odometry
+        # Publish odometry to /odom_new
         self.odom_pub.publish(odom)
 
         # Publish TF transform
