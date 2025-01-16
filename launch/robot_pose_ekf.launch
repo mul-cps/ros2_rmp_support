@@ -1,5 +1,7 @@
 <launch>
- <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+  <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf" output="screen">
+    
+    <!-- Parameters -->
     <param name="output_frame" value="odom"/>
     <param name="freq" value="30.0"/>
     <param name="sensor_timeout" value="1.0"/>
@@ -8,5 +10,9 @@
     <param name="vo_used" value="false"/>
     <param name="debug" value="false"/>
     <param name="self_diagnose" value="false"/>
+
+    <!-- Remap Odometry Input -->
+    <remap from="/odom" to="/odom_normalized"/>
+
   </node>
 </launch>
