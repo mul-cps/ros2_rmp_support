@@ -98,6 +98,15 @@ class EncoderOdometry:
         odom.twist.twist.linear.x = v
         odom.twist.twist.angular.z = omega
 
+        # Include Covariance Matrix
+        # Include covariance
+        odom_normalized.pose.covariance = [0.01, 0, 0, 0, 0, 0,
+                                           0, 0.01, 0, 0, 0, 0,
+                                           0, 0, 0.01, 0, 0, 0,
+                                           0, 0, 0, 0.01, 0, 0,
+                                           0, 0, 0, 0, 0.01, 0,
+                                           0, 0, 0, 0, 0, 0.01]
+
         # Publish odometry to /odom_new
         rospy.logdebug("Publishing Odometry message.")
         self.odom_pub.publish(odom)
