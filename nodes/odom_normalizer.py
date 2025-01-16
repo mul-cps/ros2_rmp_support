@@ -39,11 +39,11 @@ def odom_callback(msg):
 
     # Include covariance
     odom_normalized.pose.covariance = [0.01, 0, 0, 0, 0, 0,
-                                        0, 0.01, 0, 0, 0, 0,
-                                        0, 0, 0.01, 0, 0, 0,
-                                        0, 0, 0, 0.01, 0, 0,
-                                        0, 0, 0, 0, 0.01, 0,
-                                        0, 0, 0, 0, 0, 0.01]
+                                       0, 0.01, 0, 0, 0, 0,
+                                       0, 0, 0.01, 0, 0, 0,
+                                       0, 0, 0, 0.01, 0, 0,
+                                       0, 0, 0, 0, 0.01, 0,
+                                       0, 0, 0, 0, 0, 0.01]
 
     # Publish normalized odom
     pub.publish(odom_normalized)
