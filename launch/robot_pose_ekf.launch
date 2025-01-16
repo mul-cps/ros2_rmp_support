@@ -12,7 +12,7 @@
     <param name="self_diagnose" value="false"/>
 
     <!-- Remap Odometry Input -->
-    <remap from="/odom" to="/odom_normalized"/>
+    <remap from="/odom" to="/odom_new"/>
 
   </node>
 </launch>
