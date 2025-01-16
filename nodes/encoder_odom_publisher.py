@@ -12,9 +12,9 @@ class EncoderOdometry:
         rospy.init_node("encoder_odom_publisher")
 
         # Robot parameters (update these according to your robot)
-        self.wheel_radius = 0.05  # Wheel radius in meters
-        self.wheel_base = 0.3  # Distance between wheels (m)
-        self.ticks_per_revolution = 1000  # Encoder ticks per wheel revolution
+        self.wheel_radius = 0.202  # Wheel radius in meters
+        self.wheel_base = 0.392  # Distance between wheels (m)
+        self.ticks_per_revolution = 4096  # Encoder ticks per wheel revolution
 
         # State variables
         self.x = 0.0
