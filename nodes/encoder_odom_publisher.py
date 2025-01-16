@@ -4,7 +4,7 @@ import rospy
 import tf
 from nav_msgs.msg import Odometry
 from std_msgs.msg import Header
-from segway_msgs.msg import EncoderTicks  # Replace with actual message type
+from segway_msgs.msg import ticks_fb  # Correct message import
 import math
 
 class EncoderOdometry:
@@ -28,8 +28,8 @@ class EncoderOdometry:
         self.odom_pub = rospy.Publisher("/odom_new", Odometry, queue_size=10)
         self.odom_broadcaster = tf.TransformBroadcaster()
 
-        # ROS subscriber
-        rospy.Subscriber("/ticks_fb", EncoderTicks, self.ticks_callback)
+        # ROS subscriber to /ticks_fb topic
+        rospy.Subscriber("/ticks_fb", ticks_fb, self.ticks_callback)
 
         rospy.spin()
 
