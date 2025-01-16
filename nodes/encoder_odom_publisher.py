@@ -4,7 +4,7 @@ import rospy
 import tf
 from nav_msgs.msg import Odometry
 from std_msgs.msg import Header
-from your_custom_msgs.msg import EncoderTicks  # Replace with actual message type
+from segway_msgs.msg import EncoderTicks  # Replace with actual message type
 import math
 
 class EncoderOdometry:
