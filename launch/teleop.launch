@@ -1,0 +1,17 @@
+<launch>
+  <!-- Launch the joy node to read input from the Xbox controller -->
+  <node name="joy_node" pkg="joy" type="joy_node" output="screen">
+    <param name="dev" value="/dev/input/js0" />
+  </node>
+
+  <!-- Launch the teleop_twist_joy node to map the joystick inputs to robot movement -->
+  <node name="teleop_twist_joy" pkg="teleop_twist_joy" type="teleop_node" output="screen">
+    <!-- Use the Xbox controller configuration -->
+    <param name="config" value="xbox" />
+    <param name="axis_linear" value="1" /> <!-- Left stick up/down for linear velocity -->
+    <param name="axis_angular" value="0" /> <!-- Left stick left/right for angular velocity -->
+    <param name="scale_angular" value="1.0" /> <!-- Scale factor for angular velocity -->
+    <param name="scale_linear" value="0.5" /> <!-- Scale factor for linear velocity -->
+  </node>
+  
+</launch>
