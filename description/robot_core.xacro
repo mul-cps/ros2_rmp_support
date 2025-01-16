@@ -76,7 +76,7 @@
     <!-- CHASSIS LINK -->
 
     <joint name="chassis_joint" type="fixed">
-        <parent link="base_link"/>
+        <parent link="base_footprint"/>
         <child link="chassis"/>
         <origin xyz="${-chassis_length/2 + 0.075} 0 ${wheel_radius - wheel_offset_z}"/>
     </joint>
