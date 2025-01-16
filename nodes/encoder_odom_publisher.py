@@ -102,15 +102,15 @@ class EncoderOdometry:
         rospy.logdebug("Publishing Odometry message.")
         self.odom_pub.publish(odom)
 
-        # Publish TF transform
-        rospy.logdebug("Publishing TF transform.")
-        self.odom_broadcaster.sendTransform(
-            (self.x, self.y, 0),
-            q,
-            rospy.Time.from_sec(current_time),
-            "base_link",
-            "odom"
-        )
+        # # Publish TF transform
+        # rospy.logdebug("Publishing TF transform.")
+        # self.odom_broadcaster.sendTransform(
+        #     (self.x, self.y, 0),
+        #     q,
+        #     rospy.Time.from_sec(current_time),
+        #     "base_link",
+        #     "odom"
+        # )
 
         # Update previous values
         self.last_l_ticks = msg.l_ticks
