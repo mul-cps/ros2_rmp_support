@@ -100,7 +100,7 @@ class EncoderOdometry:
 
         # Include Covariance Matrix
         # Include covariance
-        odom_normalized.pose.covariance = [0.01, 0, 0, 0, 0, 0,
+        odom.pose.covariance = [0.01, 0, 0, 0, 0, 0,
                                            0, 0.01, 0, 0, 0, 0,
                                            0, 0, 0.01, 0, 0, 0,
                                            0, 0, 0, 0.01, 0, 0,
