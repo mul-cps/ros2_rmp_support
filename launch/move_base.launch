@@ -55,11 +55,13 @@
     <param name="recovery_alpha_fast" value="0.0"/>
     <!-- scan topic -->
     <remap from="scan" to="scan"/>
+    <!-- remap cmd_vel -->
+    <remap from="cmd_vel" to="nav_vel"/>
   </node>
 
   <!-- TF -->
   <!-- <node pkg="tf" type="static_transform_publisher" name="base_to_laser" args="0.10 0.0 0.12 3.14 0.0 0.0 base_link laser 100"/>
   static_transform_publisher x y z yaw pitch roll frame_id child_frame_id period_in_ms -->  
-  <!-- <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link" args="0 0 0.5 0 0 0 base_link base_footprint 50" /> --> -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link" args="0 0 0.5 0 0 0 base_link base_footprint 50" /> -->
 
 </launch>
