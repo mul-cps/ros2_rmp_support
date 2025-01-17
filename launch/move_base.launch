@@ -4,8 +4,8 @@
   <!--<include file="$(find segwayrmp)/launch/segwayrmp_configuration.launch" />-->
 
   <!-- Run the map server -->
-  <!--<node name="map_server" pkg="map_server" type="map_server" args="$(find segwayrmp)/maps/mymap.pgm my_map_resolution"/>-->
-  <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find segwayrmp)/maps/mymap.yaml"/> -->
+  <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find segwayrmp)/maps/mymap.pgm my_map_resolution"/> -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find cps_rmp220_support)/maps/map.yaml"/>
 
   <!--move base-->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
