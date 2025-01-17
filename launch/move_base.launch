@@ -5,7 +5,7 @@
 
   <!-- Run the map server -->
   <!--<node name="map_server" pkg="map_server" type="map_server" args="$(find segwayrmp)/maps/mymap.pgm my_map_resolution"/>-->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find segwayrmp)/maps/mymap.yaml"/>
+  <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find segwayrmp)/maps/mymap.yaml"/> -->
 
   <!--move base-->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
@@ -16,7 +16,7 @@
     <rosparam file="$(find segwayrmp)/param/base_local_planner_params.yaml" command="load" />
   </node>
 
-   <!--启动 AMCL 节点 -->
+  <!-- AMCL -->
   <node pkg="amcl" type="amcl" name="amcl" clear_params="true">
     <param name="use_map_topic" value="false"/>
     <!-- Publish scans from best pose at a max of 10 Hz -->
@@ -54,7 +54,7 @@
     <param name="recovery_alpha_slow" value="0.0"/>
     <param name="recovery_alpha_fast" value="0.0"/>
     <!-- scan topic -->
-    <remap from="scan" to="scan"/>
+    <remap from="scan" to="scan_filtered"/>
     <!-- remap cmd_vel -->
     <remap from="cmd_vel" to="nav_vel"/>
     <!-- remap odom -->
