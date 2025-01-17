@@ -3,6 +3,6 @@
     <param name="box_filter_config" command="$(find cps_rmp220_support)/config/box_filter.yaml" />
 
     <!-- Launch the laser_filters node -->
-    <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="scan_to_scan_filter_chain" output="screen">/>
+    <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="scan_to_scan_filter_chain" output="screen">
     </node>
 </launch>
