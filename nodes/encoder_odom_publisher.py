@@ -26,7 +26,7 @@ class EncoderOdometry:
 
         # ROS publishers (Updated topic to /odom_new)
         self.odom_pub = rospy.Publisher("/odom_new", Odometry, queue_size=10)
-        self.odom_broadcaster = tf.TransformBroadcaster()
+        #self.odom_broadcaster = tf.TransformBroadcaster()
 
         # ROS subscriber to /ticks_fb topic
         rospy.Subscriber("/ticks_fb", ticks_fb, self.ticks_callback)
