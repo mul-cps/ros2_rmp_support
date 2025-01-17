@@ -95,6 +95,11 @@ install(FILES README.md LICENSE.md
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
+# Install configuration files
+install(DIRECTORY config
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  FILES_MATCHING PATTERN "*.yaml"
+)
 ################################################################################
 # Test
 ################################################################################
