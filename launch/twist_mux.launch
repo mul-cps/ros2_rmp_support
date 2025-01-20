@@ -7,7 +7,7 @@
   <arg name="config_locks"  default="$(find twist_mux)/config/twist_mux_locks.yaml"/>
   <arg name="config_topics" default="$(find cps_rmp220_support)/config/twist_mux_topics.yaml"/>
 
-  <arg name="config_joy" default="$(find twist_mux)/config/joystick.yaml"/>
+  <!-- <arg name="config_joy" default="$(find twist_mux)/config/joystick.yaml"/> -->
 
   <node pkg="twist_mux" type="twist_mux" name="twist_mux" output="screen">
     <remap from="cmd_vel_out" to="$(arg cmd_vel_out)"/>
