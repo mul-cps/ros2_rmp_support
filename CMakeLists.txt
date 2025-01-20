@@ -68,7 +68,7 @@ catkin_install_python(PROGRAMS ${python_scripts}
 ################################################################################
 # Install
 ################################################################################
-install(DIRECTORY meshes rviz urdf config
+install(DIRECTORY meshes rviz urdf
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 

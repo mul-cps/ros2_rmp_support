@@ -5,7 +5,7 @@
   <arg name="cmd_vel_out" default="twist_mux/cmd_vel"/>
 
   <arg name="config_locks"  default="$(find twist_mux)/config/twist_mux_locks.yaml"/>
-  <arg name="config_topics" default="$(find cps_rmp220_Support)/config/twist_mux_topics.yaml"/>
+  <arg name="config_topics" default="$(find cps_rmp220_support)/config/twist_mux_topics.yaml"/>
 
   <arg name="config_joy" default="$(find twist_mux)/config/joystick.yaml"/>
 
