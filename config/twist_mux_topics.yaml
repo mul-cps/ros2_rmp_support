@@ -10,7 +10,7 @@ topics:
   name    : navigation
   topic   : nav_vel
   timeout : 0.5
-  priority: 90
+  priority: 110
 -
   name    : joystick
   topic   : joy_vel
@@ -20,9 +20,9 @@ topics:
   name    : keyboard
   topic   : key_vel
   timeout : 0.5
-  priority: 90
+  priority: 10
 -
   name    : tablet
   topic   : tab_vel
   timeout : 0.5
-  priority: 90
+  priority: 10
