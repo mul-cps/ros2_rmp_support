@@ -15,7 +15,7 @@ topics:
   name    : joystick
   topic   : joy_vel
   timeout : 0.5
-  priority: 90
+  priority: 80
 -
   name    : keyboard
   topic   : key_vel
