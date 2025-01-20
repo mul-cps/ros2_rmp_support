@@ -15,6 +15,7 @@
     <param name="scale_linear" value="0.5" /> <!-- Scale factor for linear velocity -->
     
     <!-- Remap /cmd_vel to /joy_vel -->
-    <remap from="/cmd_vel" to="/joy_vel" />
+    <!-- <remap from="/cmd_vel" to="/joy_vel" /> -->
+    <remap from="/cmd_vel" to="/input_joy/cmd_vel" />
   </node>
 </launch>
