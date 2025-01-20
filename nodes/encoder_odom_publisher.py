@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+""" 
+Node for pusblishing segway rmp 220 lite Odometry calculated from encoder ticks_fb
+"""
+
 import rospy
 import tf
 from nav_msgs.msg import Odometry
@@ -12,9 +16,9 @@ class EncoderOdometry:
         rospy.init_node("encoder_odom_publisher")
 
         # Robot parameters (update these according to your robot)
-        self.wheel_radius = 0.202  # Wheel radius in meters
-        self.wheel_base = 0.392  # Distance between wheels (m)
-        self.ticks_per_revolution = 4096  # Encoder ticks per wheel revolution
+        self.wheel_radius = 0.125 #0.202  # Wheel radius in meters
+        self.wheel_base = 0.415 #0.392  # Distance between wheels (m)
+        self.ticks_per_revolution = 4096  # Encoder ticks per wheel revolution --> checked fine
 
         # State variables
         self.x = 0.0
