@@ -10,7 +10,7 @@ topics:
   name    : navigation
   topic   : nav_vel
   timeout : 0.5
-  priority: 100
+  priority: 90
 -
   name    : joystick
   topic   : joy_vel
