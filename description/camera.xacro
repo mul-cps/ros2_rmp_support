@@ -23,6 +23,15 @@
         </visual>
     </link>
 
+    <!-- add camera_frame for realsense 21.01.2025 -->
+    <joint name="camera_frame_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="camera_frame"/>
+        <origin xyz="${chassis_length/2} 0 ${chassis_height/2 + 0.06}" rpy="0 0 0"/>
+    </joint>
+
+    <link name="camera_frame">
+    </link>
 
     <joint name="camera_optical_joint" type="fixed">
         <parent link="camera_link"/>
