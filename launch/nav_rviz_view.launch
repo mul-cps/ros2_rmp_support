@@ -3,6 +3,6 @@
 <launch>
 
     <!--start rviz view -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find segwayrmp)/rviz/nav.rviz" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find segwayrmp)/rviz/rviz.rviz" />
 
 </launch>
