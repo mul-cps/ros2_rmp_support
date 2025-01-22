@@ -9,11 +9,12 @@
 
   <!--move base-->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
     <rosparam file="$(find segwayrmp)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find segwayrmp)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
     <rosparam file="$(find segwayrmp)/param/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find segwayrmp)/param/global_costmap_params.yaml" command="load" />
-    <rosparam file="$(find segwayrmp)/param/base_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find cps_rmp220_support)/config/dwa_base_local_planner_params.yaml" command="load" />
     <!-- scan topic -->
     <remap from="scan" to="scan_filtered"/>
     <!-- remap cmd_vel -->
