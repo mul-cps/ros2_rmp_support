@@ -3,8 +3,8 @@ recovery_behavior_enabled: false
 clearing_rotation_allowed: false
 
 DWAPlannerROS:
-   max_vel_x: 0.6
-   min_vel_x: 0.1
+   max_vel_x: 1.0
+   min_vel_x: 0.2
    max_vel_y: 0.0  # zero for a differential drive robot
    min_vel_y: 0.0
    min_in_place_vel_theta: 0.5
