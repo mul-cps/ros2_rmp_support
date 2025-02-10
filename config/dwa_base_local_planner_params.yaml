@@ -1,4 +1,4 @@
-controller_frequency: 20.0 #5.0
+controller_frequency: 2.0 #20.0 #5.0
 recovery_behavior_enabled: true #false
 clearing_rotation_allowed: true #false
 
