@@ -20,7 +20,8 @@
     <!-- remap cmd_vel -->
     <remap from="cmd_vel" to="nav_vel"/>
     <!-- remap odom -->
-    <remap from="odom" to="/robot_pose_ekf/odom_combined"/>
+    <!-- <remap from="odom" to="/robot_pose_ekf/odom_combined"/> -->
+    <remap from="odom" to="/odom_new"/>
   </node>
 
   <!-- TF -->
