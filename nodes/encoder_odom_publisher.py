@@ -104,12 +104,19 @@ class EncoderOdometry:
 
         # Include Covariance Matrix
         # Include covariance
-        odom.pose.covariance = [0.01, 0, 0, 0, 0, 0,
-                                           0, 0.01, 0, 0, 0, 0,
-                                           0, 0, 0.01, 0, 0, 0,
-                                           0, 0, 0, 0.01, 0, 0,
-                                           0, 0, 0, 0, 0.01, 0,
-                                           0, 0, 0, 0, 0, 0.01]
+        # odom.pose.covariance = [0.01, 0, 0, 0, 0, 0,
+        #                                    0, 0.01, 0, 0, 0, 0,
+        #                                    0, 0, 0.01, 0, 0, 0,
+        #                                    0, 0, 0, 0.01, 0, 0,
+        #                                    0, 0, 0, 0, 0.01, 0,
+        #                                    0, 0, 0, 0, 0, 0.01]
+
+        odom.pose.covariance = [0.1, 0, 0, 0, 0, 0,  # Higher uncertainty in x
+                        0, 0.1, 0, 0, 0, 0,  # Higher uncertainty in y
+                        0, 0, 0.2, 0, 0, 0,  # Higher uncertainty in z (less typical for most robots)
+                        0, 0, 0, 0.5, 0, 0,  # Higher uncertainty in roll
+                        0, 0, 0, 0, 0.5, 0,  # Higher uncertainty in pitch
+                        0, 0, 0, 0, 0, 0.5]  # Higher uncertainty in yaw
 
         # Publish odometry to /odom_new
         rospy.logdebug("Publishing Odometry message.")
