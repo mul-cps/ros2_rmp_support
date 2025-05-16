@@ -1,4 +1,12 @@
-## Robot Support Package for Segway RMP220 lite
+Support package needed for Segway RMP220 control.
+
+Part of the CPS Segway RMP220 ROS2 meta-package:
+- ros2_rmp
+- ros2_rmp_middleware
+- ros2_rmp_teleop
+- ros2_rmp_support
+
+## Robot Support Package for Segway RMP220
 
 This package should be placed into your workspace src/ folder.
 Alongside you must clone https://github.com/bjoernellens1/segwayrmp and https://github.com/bjoernellens1/segway_msgs to control the robot.
