@@ -3,7 +3,6 @@
 
     <xacro:include filename="inertial_macros.xacro"/>
 
-
     <xacro:property name="chassis_length" value="0.600"/>
     <xacro:property name="chassis_width" value="0.330"/>
     <xacro:property name="chassis_height" value="0.155"/>
@@ -72,7 +71,6 @@
     <link name="base_footprint">
     </link>
 
-
     <!-- CHASSIS LINK -->
 
     <joint name="chassis_joint" type="fixed">
@@ -134,9 +132,6 @@
         <material>Gazebo/Blue</material>
     </gazebo>
 
-
-
-
     <!-- RIGHT WHEEL LINK -->
 
     <joint name="right_wheel_joint" type="continuous">
@@ -167,7 +162,6 @@
         <material>Gazebo/Blue</material>
     </gazebo>
 
-
     <!-- CASTER WHEEL LINK -->
 
     <joint name="caster_wheel_joint" type="fixed">
@@ -175,7 +169,6 @@
         <child link="caster_wheel"/>
         <origin xyz="-${caster_wheel_offset_x*2} 0 ${caster_wheel_offset_z}"/>
     </joint>
-
 
     <link name="caster_wheel">
         <visual>
@@ -199,32 +192,6 @@
         <mu1 value="0.001"/>
         <mu2 value="0.001"/>
     </gazebo>
-
-    <!-- Lidar LINK -->
-
-    <!-- <joint name="lidar_joint" type="fixed">
-        <parent link="chassis"/>
-        <child link="laser_frame"/>
-        <origin xyz="${chassis_length/2 -0.150} 0 ${chassis_height + 0.030}" rpy="0 0 0"/>
-    </joint>
-
-
-    <link name="laser_frame">
-        <visual>
-            <geometry>
-                <sphere radius="${caster_wheel_radius}"/>
-            </geometry>
-            <material name="white"/>
-        </visual>
-        <collision>
-            <geometry>
-                <sphere radius="${caster_wheel_radius}"/>
-            </geometry>
-        </collision>
-        <xacro:inertial_sphere mass="${caster_wheel_mass}" radius="${caster_wheel_radius}">
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-        </xacro:inertial_sphere>
-    </link> -->
 
     <joint name="laser_joint" type="fixed">
         <parent link="chassis"/>
