@@ -13,12 +13,6 @@
         <xacro:include filename="gazebo_control.xacro" />
     </xacro:unless>
     
-    <xacro:include filename="imu.xacro" />
-
-    <!-- New xacro file defining oak-d-lite depth camera
-    <xacro:include filename="oak-d-lite.xacro"/> -->
-    
-    <!-- femto_bolt xacro file -->
-    <xacro:include filename="femto_mega.urdf.xacro" />
+    <xacro:include filename="imu.xacro" />    
 
 </robot>
