@@ -221,4 +221,21 @@
         <material>Gazebo/White</material>
     </gazebo>
 
+    <!-- femto_mega camera LINK -->
+
+    <!-- <joint name="femto_mega_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="femto_mega_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="femto_mega_link">
+    </link> -->
+    <xacro:femto_bolt
+            prefix="femto_mega"
+            parent="base_link"
+            use_nominal_extrinsics="true">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </xacro:femto_bolt>
+
 </robot>
