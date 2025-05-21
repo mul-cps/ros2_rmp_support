@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://wiki.ros.org/xacro">
+<robot name="femto_bolt" xmlns:xacro="http://wiki.ros.org/xacro">
 
   <!--
   This is the URDF model for the Orbbec Femto Bolt camera
