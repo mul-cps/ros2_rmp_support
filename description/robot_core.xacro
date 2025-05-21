@@ -231,6 +231,8 @@
 
     <link name="femto_mega_link">
     </link> -->
+     <!-- femto_bolt xacro file -->
+    <xacro:include filename="femto_mega.urdf.xacro" />
     <xacro:femto_bolt
             prefix="femto_mega"
             parent="base_link"
