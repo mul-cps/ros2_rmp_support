@@ -30,7 +30,7 @@ def generate_launch_description():
             " ",
             PathJoinSubstitution(
                 [
-                    FindPackageShare("cps_rmp220_support"),
+                    FindPackageShare("ros2_rmp_support"),
                     "description",
                     "robot.urdf.xacro"
                 ]
@@ -41,7 +41,7 @@ def generate_launch_description():
     use_sim_time = False
     slam_params_file = PathJoinSubstitution(
                 [
-                    FindPackageShare("cps_rmp220_support"),
+                    FindPackageShare("ros2_rmp_support"),
                     "config",
                     "mapper_params_online_async.yaml"
                 ]

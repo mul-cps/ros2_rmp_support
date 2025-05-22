@@ -11,7 +11,7 @@ def generate_launch_description():
             executable="scan_to_scan_filter_chain",
             parameters=[
                 PathJoinSubstitution([
-                    get_package_share_directory("cps_rmp220_support"),
+                    get_package_share_directory("ros2_rmp_support"),
                     "config", "box_filter.yaml",
                 ])],
         )

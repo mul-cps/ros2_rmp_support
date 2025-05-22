@@ -238,8 +238,8 @@
   </ros2_control>
   <gazebo>
     <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-      <parameters>/home/bjorn/Documents/ros_projects/cps_rmp220_support/install/cps_rmp220_support/share/cps_rmp220_support/config/my_controllers.yaml</parameters>
-      <parameters>/home/bjorn/Documents/ros_projects/cps_rmp220_support/install/cps_rmp220_support/share/cps_rmp220_support/config/gaz_ros2_ctl_use_sim.yaml</parameters>
+      <parameters>/home/bjorn/Documents/ros_projects/ros2_rmp_support/install/ros2_rmp_support/share/ros2_rmp_support/config/my_controllers.yaml</parameters>
+      <parameters>/home/bjorn/Documents/ros_projects/ros2_rmp_support/install/ros2_rmp_support/share/ros2_rmp_support/config/gaz_ros2_ctl_use_sim.yaml</parameters>
     </plugin>
   </gazebo>
   <joint name="camera_joint" type="fixed">

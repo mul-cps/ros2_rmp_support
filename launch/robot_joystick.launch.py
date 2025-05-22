@@ -12,7 +12,7 @@ from ament_index_python.packages import get_package_share_directory
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
 
-    # joy_params = os.path.join(get_package_share_directory('cps_rmp220_support'),'config','joystick.yaml')
+    # joy_params = os.path.join(get_package_share_directory('ros2_rmp_support'),'config','joystick.yaml')
     # namespace = "/rmp"
     # joy_node = Node(
     #         package='joy',
@@ -30,7 +30,7 @@ def generate_launch_description():
     #         namespace = namespace
     #      )
     
-    # twist_mux_params = os.path.join(get_package_share_directory('cps_rmp220_support'),'config','twist_mux.yaml')
+    # twist_mux_params = os.path.join(get_package_share_directory('ros2_rmp_support'),'config','twist_mux.yaml')
     # twist_mux = Node(
     #         package="twist_mux",
     #         executable="twist_mux",
@@ -42,7 +42,7 @@ def generate_launch_description():
     # Using the more 'ROS' way: joy node publishes at 50Hz defined in the config and joy-teleop
     # node publishes the joy messages only when enable button is pressed.
 
-    joy_params = os.path.join(get_package_share_directory('cps_rmp220_support'),'config','joystick.yaml')
+    joy_params = os.path.join(get_package_share_directory('ros2_rmp_support'),'config','joystick.yaml')
     namespace = "/rmp"
     joy_node = Node(
             package='joy',
@@ -60,7 +60,7 @@ def generate_launch_description():
             #namespace = namespace
          )
     
-    twist_mux_params = os.path.join(get_package_share_directory('cps_rmp220_support'),'config','twist_mux.yaml')
+    twist_mux_params = os.path.join(get_package_share_directory('ros2_rmp_support'),'config','twist_mux.yaml')
     twist_mux_node = Node(
             package="twist_mux",
             executable="twist_mux",

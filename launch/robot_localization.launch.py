@@ -32,7 +32,7 @@ def generate_launch_description():
        output='screen',
        parameters = [ PathJoinSubstitution(
                 [
-                    FindPackageShare("cps_rmp220_support"),
+                    FindPackageShare("ros2_rmp_support"),
                     "config",
                     "ekf.yaml"
                 ]
