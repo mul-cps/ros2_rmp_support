@@ -223,21 +223,45 @@
 
     <!-- femto_mega camera LINK -->
 
-    <!-- <joint name="femto_mega_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="femto_mega_link"/>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-    </joint>
-
-    <link name="femto_mega_link">
-    </link> -->
-     <!-- femto_bolt xacro file -->
     <xacro:include filename="femto_mega.urdf.xacro" />
     <xacro:femto_bolt
             prefix="femto_mega"
             parent="base_link"
             use_nominal_extrinsics="true">
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <origin xyz=".1 0 1.35" rpy="0 .5 0"/>
     </xacro:femto_bolt>
+
+    <!-- Beam joint connecting base_link to beam -->
+<joint name="femto_mega_beam_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="femto_mega_beam_link"/>
+  <!-- Adjust this to match the midpoint between base_link and femto_mega_base_link -->
+  <origin xyz="0.05 0 0.675" rpy="0 0 0"/>
+</joint>
+
+<!-- Beam link -->
+<link name="femto_mega_beam_link">
+  <visual>
+    <!-- Adjust size and placement to match the camera mount -->
+    <origin xyz="0 0 0.2" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.05 0.05 1.1"/> <!-- (x, y, z) length of the beam -->
+    </geometry>
+    <material name="beam_grey">
+      <color rgba="0.5 0.5 0.5 1.0"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.1 0.02 1.35"/>
+    </geometry>
+  </collision>
+  <inertial>
+    <mass value="0.1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+  </inertial>
+</link>
 
 </robot>
