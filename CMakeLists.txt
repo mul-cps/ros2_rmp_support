@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(cps_rmp220_support)
+project(ros2_rmp_support)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)

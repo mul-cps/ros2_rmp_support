@@ -3,7 +3,7 @@
 <package format="3">
   <name>ros2_rmp_support</name>
   <version>0.0.1</version>
-  <description>Segway RMP220 lite ackage for control, simulation and visualization</description>
+  <description>Segway RMP220 lite package for control, simulation and visualization</description>
   <maintainer email="bjoern.ellensohn@stud.unileoben.ac.at">MY NAME</maintainer>
   <license>TODO: License declaration</license>
 
