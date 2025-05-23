@@ -15,7 +15,7 @@
   <xacro:property name="cam_height" value="0.06495"/>
   <xacro:property name="cam_depth" value="0.04026"/>
   <!-- <xacro:property name="mesh_path" value="models/" /> -->
-  <xacro:property name="mesh_path" value="file://$(ros2_rmp_support)/description/models/" />
+  <xacro:property name="mesh_path" value="models/" />
 
   <!-- The following values are approximate but the camera node
      publishes TF values with actual calibrated camera extrinsic values -->
