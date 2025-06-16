@@ -228,7 +228,7 @@
             prefix="femto_mega"
             parent="base_link"
             use_nominal_extrinsics="true">
-        <origin xyz=".1 0 1.35" rpy="0 .5 0"/>
+        <origin xyz=".07 0 1.00" rpy="0 .5 0"/>
     </xacro:femto_bolt>
 
     <!-- Beam joint connecting base_link to beam -->
