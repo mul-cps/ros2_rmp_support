@@ -306,7 +306,7 @@ collision_monitor:
     use_sim_time: False
     base_frame_id: base_link
     odom_frame_id: odom
-    observation_sources: scan
+    observation_sources: ["scan"]
     scan:
       type: laser_scan
       topic: scan
