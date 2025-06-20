@@ -301,6 +301,19 @@ controller_server:
       max_robot_pose_search_dist: 10.0
       use_interpolation: true # was false
 
+collision_monitor:
+  ros__parameters:
+    use_sim_time: False
+    base_frame_id: base_link
+    odom_frame_id: odom
+    observation_sources: scan
+    scan:
+      type: laser_scan
+      topic: scan
+      min_obstacle_height: 0.0
+      max_obstacle_height: 2.0
+      obstacle_radius: 0.2
+      time_allowance: 0.5
 
 local_costmap:
   local_costmap:
