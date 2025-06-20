@@ -68,43 +68,32 @@
 #
 # Licensed under the Apache License, Version 2.0
 
-import os
 from launch import LaunchDescription
-from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration
+from launch.substitutions import PathJoinSubstitution, LaunchConfiguration
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
-from launch_ros.descriptions import ParameterValue
-
 
 def generate_launch_description():
-    # Full path to SLAM parameter YAML file
+    # Path to your parameter file
     slam_params_file = PathJoinSubstitution([
         FindPackageShare("ros2_rmp_support"),
         "config",
         "mapper_params_online_async.yaml"
     ])
 
-    # Wrap it correctly so it's interpreted as a YAML param file
-    slam_params = ParameterValue(
-        slam_params_file,
-        value_type="yaml_file"
-    )
-
-    # Set whether to use simulation time
     use_sim_time = LaunchConfiguration("use_sim_time", default="false")
 
-    # Launch slam_toolbox node
     slam_toolbox_node = Node(
         package="slam_toolbox",
         executable="async_slam_toolbox_node",
         name="slam_toolbox_node",
         output="screen",
         parameters=[
-            slam_params,
+            slam_params_file,
             {"use_sim_time": use_sim_time}
         ],
         remappings=[
-            # Only needed if scan_topic is not overridden in the YAML file
+            # Uncomment if needed
             # ('/scan', '/scan_filtered'),
         ],
     )
