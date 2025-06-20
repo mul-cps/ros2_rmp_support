@@ -1,65 +1,114 @@
+# # Copyright 2022 Factor Robotics
+# #
+# # Licensed under the Apache License, Version 2.0 (the "License");
+# # you may not use this file except in compliance with the License.
+# # You may obtain a copy of the License at
+# #
+# #     http://www.apache.org/licenses/LICENSE-2.0
+# #
+# # Unless required by applicable law or agreed to in writing, software
+# # distributed under the License is distributed on an "AS IS" BASIS,
+# # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# # See the License for the specific language governing permissions and
+# # limitations under the License.
+
+# import os
+# from launch import LaunchDescription
+# from launch.substitutions import Command, FindExecutable, PathJoinSubstitution
+# from launch_ros.actions import Node
+# from launch_ros.substitutions import FindPackageShare
+# from ament_index_python.packages import get_package_share_directory
+# from launch_ros.actions import LifecycleNode
+# from launch_ros.descriptions import ParameterValue
+# from launch.substitutions import LaunchConfiguration
+
+
+# def generate_launch_description():
+#     robot_description_content = Command(
+#         [
+#             PathJoinSubstitution([FindExecutable(name="xacro")]),
+#             " ",
+#             PathJoinSubstitution(
+#                 [
+#                     FindPackageShare("ros2_rmp_support"),
+#                     "description",
+#                     "robot.urdf.xacro"
+#                 ]
+#             ),
+#         ]
+#     )
+
+#     use_sim_time = False
+#     slam_params_file = PathJoinSubstitution(
+#                 [
+#                     FindPackageShare("ros2_rmp_support"),
+#                     "config",
+#                     "mapper_params_online_async.yaml"
+#                 ]
+#             )
+#     namespace = "/rmp"
+#     mapper_node = Node(
+#         package="slam_toolbox",
+#         executable="async_slam_toolbox_node",
+#         name='slam_toolbox_node',
+#         output='screen',
+#         parameters=[
+#             slam_params_file,
+#             {'use_sim_time': use_sim_time}
+#         ],
+#         #namespace = namespace,
+#         #remappings=[('/scan', 'scan'), ('/map', 'map')],
+#     )
+
+#     return LaunchDescription([
+#         mapper_node
+#     ])
+
 # Copyright 2022 Factor Robotics
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# Licensed under the Apache License, Version 2.0
 
 import os
 from launch import LaunchDescription
-from launch.substitutions import Command, FindExecutable, PathJoinSubstitution
+from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
-from ament_index_python.packages import get_package_share_directory
-from launch_ros.actions import LifecycleNode
 from launch_ros.descriptions import ParameterValue
-from launch.substitutions import LaunchConfiguration
 
 
 def generate_launch_description():
-    robot_description_content = Command(
-        [
-            PathJoinSubstitution([FindExecutable(name="xacro")]),
-            " ",
-            PathJoinSubstitution(
-                [
-                    FindPackageShare("ros2_rmp_support"),
-                    "description",
-                    "robot.urdf.xacro"
-                ]
-            ),
-        ]
+    # Full path to SLAM parameter YAML file
+    slam_params_file = PathJoinSubstitution([
+        FindPackageShare("ros2_rmp_support"),
+        "config",
+        "mapper_params_online_async.yaml"
+    ])
+
+    # Wrap it correctly so it's interpreted as a YAML param file
+    slam_params = ParameterValue(
+        slam_params_file,
+        value_type="yaml_file"
     )
 
-    use_sim_time = False
-    slam_params_file = PathJoinSubstitution(
-                [
-                    FindPackageShare("ros2_rmp_support"),
-                    "config",
-                    "mapper_params_online_async.yaml"
-                ]
-            )
-    namespace = "/rmp"
-    mapper_node = Node(
+    # Set whether to use simulation time
+    use_sim_time = LaunchConfiguration("use_sim_time", default="false")
+
+    # Launch slam_toolbox node
+    slam_toolbox_node = Node(
         package="slam_toolbox",
         executable="async_slam_toolbox_node",
-        name='slam_toolbox_node',
-        output='screen',
+        name="slam_toolbox_node",
+        output="screen",
         parameters=[
-            slam_params_file,
-            {'use_sim_time': use_sim_time}
+            slam_params,
+            {"use_sim_time": use_sim_time}
         ],
-        #namespace = namespace,
-        #remappings=[('/scan', 'scan'), ('/map', 'map')],
+        remappings=[
+            # Only needed if scan_topic is not overridden in the YAML file
+            # ('/scan', '/scan_filtered'),
+        ],
     )
 
     return LaunchDescription([
-        mapper_node
+        slam_toolbox_node
     ])
