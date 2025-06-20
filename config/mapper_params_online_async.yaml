@@ -14,7 +14,7 @@ slam_toolbox:
     map_frame: map
     base_frame: base_footprint
     # scan_topic: /scan
-    scan_topic: 
+    scan_topic: /scan_filtered
     use_map_saver: true
     mode: mapping
 
