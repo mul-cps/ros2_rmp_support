@@ -90,24 +90,6 @@ def generate_launch_description():
         ],
     )
 
-    rgbd = ComposableNode(
-        package="depth_image_proc",
-        plugin="depth_image_proc::PointCloudXyzrgbNode",
-        name="rgbd",
-        namespace="",
-        extra_arguments=[
-            {'use_intra_process_comms': True},
-        ],
-        remappings=[
-            # input
-            ("depth_registered/image_rect", "/camera/depth/image_raw"),
-            ("rgb/image_rect_color", "/camera/color/image_raw"),
-            ("rgb/camera_info", "/camera/color/camera_info"),
-            # output
-            ("points", "/camera/points"),
-        ],
-    )
-
     container = ComposableNodeContainer(
         name="camera_container",
         namespace="",
@@ -115,7 +97,6 @@ def generate_launch_description():
         executable="component_container",
         composable_node_descriptions=[
             femto,
-            rgbd,
         ],
         emulate_tty=True,
     )
